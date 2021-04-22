@@ -1,0 +1,56 @@
+This project describes a transit AS (could be a small ISP) that serves one customer and has two upstream links to two ISPs.
+
+Components:
+
+- The transit AS, with value 500, consists of four routers: R1, R2, R3 and R4. 
+
+- The CUST is using a private AS of value 64512.
+
+- ISP1 is in AS 100.
+
+- ISP2 is in AS 200.
+
+Details:
+
+- Transit AS 500:
+ -- Consists of 4 routers running OSPF as the IGW and iBGP between each other (full mesh topology between the iBGP routers - in terms of neighborship).
+
+- ISP1 - AS 100:
+ -- Connected to AS 500 by running eBGP with R1.
+ -- Loopback interfaces 0-5 represent outside networks that ISP1 is advertising to AS 500 via the redistribute command.
+
+- ISP2 - AS 200:
+-- Connected to AS 500 by running eBGP with R2.
+-- Loopback interfaces 0-5 represent outside networks that ISP2 is advertising to AS 500 via the redistribute command.
+
+- CUST - AS 64512:
+ -- Connected to AS 500 by running eBGP with R3.
+ -- Network 160.0.0.0/24 is the network the customer wants to advertise to the rest of the world.
+
+Recommended commands to run, in privileged mode, to get more information about the topology:
+
+- On the routers in AS 500:
+ -- show ip ospf neighbor
+ -- show ip bgp neighbors
+ -- show ip bgp
+ -- show ip route
+ -- show running-config | s router ospf
+ -- show running-config | s router bgp
+
+- On the ISP1 router:
+ -- show ip bgp neighbors
+ -- show ip bgp
+ -- show ip route
+ -- show running-config | s router bgp
+
+- On the ISP2 router:
+ -- show ip bgp neighbors
+ -- show ip bgp
+ -- show ip route
+ -- show running-config | s router bgp
+
+- On the CUST router:
+ -- show ip bgp neighbors
+ -- show ip bgp
+ -- show ip route
+ -- show running-config | s router bgp
