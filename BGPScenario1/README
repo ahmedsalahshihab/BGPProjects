@@ -4,7 +4,7 @@ This project describes an enterprise customer (R1) connected to three ISPs (ISP1
 
 Recommended commands to run, in privileged mode, to get more information about the topology:
 
- -- show ip bgp neighbors
- -- show ip bgp
- -- show ip route
- -- show running-config | s router bgp
+show ip bgp neighbors
+show ip bgp
+show ip route
+show running-config | s router bgp
