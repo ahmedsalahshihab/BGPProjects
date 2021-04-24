@@ -37,19 +37,7 @@ Recommended commands to run, in privileged mode, to get more information about t
  -- show running-config | s router ospf
  -- show running-config | s router bgp
 
-- On the ISP1 router:
- -- show ip bgp neighbors
- -- show ip bgp
- -- show ip route
- -- show running-config | s router bgp
-
-- On the ISP2 router:
- -- show ip bgp neighbors
- -- show ip bgp
- -- show ip route
- -- show running-config | s router bgp
-
-- On the CUST router:
+- On the rest of the routers in the topology:
  -- show ip bgp neighbors
  -- show ip bgp
  -- show ip route
