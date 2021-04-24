@@ -8,3 +8,4 @@ show ip bgp neighbors
 show ip bgp
 show ip route
 show running-config | s router bgp
+
